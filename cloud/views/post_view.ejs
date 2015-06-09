@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <title>Hospital Hangouts</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+  <script>
+
+  window.onload = function(e) {
+    var myElement = document.getElementById('myElement');
+
+    // create a simple instance
+    // by default, it only adds horizontal recognizers
+    var mc = new Hammer(myElement);
+
+    // listen to events...
+    mc.on("panleft panright", function(ev) {
+      var elem;
+      if (ev.type == 'panright') {
+        // back
+        elem = document.getElementById("previousPostArrow");
+      } else {
+        // forwards
+        elem = document.getElementById("nextPostArrow");
+      }
+
+      if (typeof elem.onclick == "function") {
+          elem.onclick.apply(elem);
+      }
+    });
+  }
+  </script>
+<head>
+</head>
+<body>
+
+  <div class="yakHeader">
+    <ul> 
+      <li> 
+        <img class="logo" src="/img/logoTransparent.png" alt="HospiTalk Logo" onclick="location.href='/';" style="cursor: pointer;">
+      </li>
+      <li> 
+        <p id="location-label">@Cornell Hospital</p>
+      </li>
+ 
+      <li>
+        <img class="addPost" src="/img/new_button.png" onclick="location.href='/new_post';">
+      </li>
+    </ul>
+  </div>
+
+
+  <div id="yakApp">
+    <div class="container">
+
+      <img id="previousPostArrow" style="position:absolute;width:20px;height:20px;left:1%;margin-top:150px;" src="/img/prev.png" onclick="location.href='<%= '/previous_post/' + post.id %>';" style="cursor: pointer;">
+      <img id="nextPostArrow" style="position:absolute;width:20px;height:20px;right:1%;margin-top:150px;" src="/img/next.png" onclick="location.href='<%= '/next_post/' + post.id %>';" style="cursor: pointer;">
+
+      <div class="yak row" id="myElement">
+        <div class="post-data">
+          <div class="yak-meta col-xs-10">
+            <p style="white-space: normal; max-height: 100000px;"><%= post.get('text') %></p>
+          </div>
+          <div class="yak-footer"><p class="time-since"><%=: post.createdAt | fancy_time %> by <%= post.get('userID') %></div>
+        </div>
+
+        <div class="yak-votes col-xs-2">
+          <span class="count"><%= post.get('likes') %></span>
+          <% if (post.get('likeList').indexOf(userID) > -1) { %>
+            <img class="liked" src="/img/heart.png" >
+          <% } else { %>
+            <img class="liked" src="/img/heart_non.png" onclick="location.href='<%= '/like_post/' + post.id %>';" style="cursor: pointer;">
+          <% } %>
+        </div>
+      </div>
+
+
+      <h2>Comments:</h2>
+
+      <% for (var i = 0; i < replies.length; i++) { %>
+        <div class="yak row">
+          <div class="post-data">
+            <div class="yak-meta col-xs-10">
+              <p style="white-space: normal; max-height: 100000px;"><%= replies[i].get('text') %></p>
+            </div>
+            <div class="yak-footer">
+              <p class="time-since"><%=: replies[i].createdAt | fancy_time %> by <%= replies[i].get('userID') %>
+            </div>
+          </div>
+
+          <div class="yak-votes col-xs-2">
+            <span class="count"><%= replies[i].get('likes') %></span>
+            <% if (replies[i].get('likeList').indexOf(userID) > -1) { %>
+              <img class="liked" src="/img/heart.png" >
+            <% } else { %>
+              <img class="liked" src="/img/heart_non.png" onclick="location.href='<%= '/comment_like/' + replies[i].id %>';" style="cursor: pointer;">
+            <% } %>
+          </div>
+
+        </div>
+      <% } if (replies.length == 0) { %>
+        <h3>There are no replies created yet.</h3>
+      <% } %>
+
+
+      <div class="yak row submit">
+        <h2>Reply</h2>
+        <h3 style="line-height: 0px;">from <%= userID %></h3>
+        <form method="post" action="/new_reply/<%= post.id %>">
+          <textarea rows="5" type="text" name="text" style="width:100%;"></textarea>
+          <input class="button" style="float:right;" type="submit" value="Post">
+        </form>
+      </div>
+
+
+    </div>
+</body>
+</html>

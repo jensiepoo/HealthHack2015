@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <title>Hospital Hangouts</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<head>
+</head>
+<body>
+
+  <div class="yakHeader">
+    <ul> 
+      <li> 
+        <img class="logo" src="/img/logoTransparent.png" alt="HospiTalk Logo" onclick="location.href='/';" style="cursor: pointer;">
+      </li>
+      <li> 
+        <p id="location-label">@Cornell Hospital</p>
+      </li>
+ 
+      <li>
+        <img class="addPost" src="/img/new_button.png" onclick="location.href='/new_post';">
+      </li>
+    </ul>
+  </div>
+  <div class="yakHeader sortSelector">
+    <ul>
+      <li>
+        <p id="newSwitch" style="color:<%= type == 'sortHot' ? '#FFF' : '#B770CB' %>;">New</p>
+        <p id="topSwitch" style="color:<%= type == 'sortHot' ? '#B770CB' : '#FFF' %>;">Top</p>
+        <input type=range min=0 max=1 value=<%= type == 'sortHot' ? 1 : 0 %> id=fader step="1" oninput="if (value == 0){ location.href='/'; } else { location.href='/hot'; };">
+      </li>
+    </ul>
+  </div>
+
+  <div id="yakApp">
+
+    <div class="container">
+
+      <% for (var i = 0; i < posts.length; i++) { %>
+        <div class="yak row">
+          <div class="post-data" onclick="location.href='<%= '/post_view/' + posts[i].id %>';" style="cursor: pointer;">
+            <div class="yak-meta col-xs-10">
+              <p><%= posts[i].get('text') %></p>
+            </div>
+
+            <div class="yak-footer" style="width:90%;border: solid #FFFFFF;  bottom: -18px;">
+              <p class="time-since"><%=: posts[i].createdAt | fancy_time %> by <%= posts[i].get('userID') %></p>
+            </div>
+            <div class="yak-footer">
+              <p></p>
+            </div>
+
+            <% if (posts[i].get('replies').length > 0) { %>
+              <div class="yak-replies">
+                <img class="replyIcon" src="/img/replies_icon.png">
+                <p> <%= '' + posts[i].get('replies').length %></p>
+              </div>
+            <% } %>
+          </div>
+
+          <div class="yak-votes col-xs-2">
+            <span class="count"><%= posts[i].get('likes') %></span>
+            <% if (posts[i].get('likeList').indexOf(userID) > -1) { %>
+              <img class="liked" src="/img/heart.png">
+            <% } else { %>
+              <img class="liked" src="/img/heart_non.png" onclick="location.href='<%= '/like/' + posts[i].id %>';" style="cursor: pointer;">
+            <% } %>
+          </div>
+        </div>
+      <% } if (posts.length == 0) { %>
+        <h2>There are no posts created yet.</h2>
+      <% } %>
+
+    </div>
+</body>
+</html>

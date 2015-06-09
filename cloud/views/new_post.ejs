@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <title>Hospital Hangouts</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<head>
+</head>
+<body>
+
+  <div class="yakHeader">
+    <ul> 
+      <li> 
+        <img class="logo" src="/img/logoTransparent.png" alt="HospiTalk Logo" onclick="location.href='/';" style="cursor: pointer;">
+      </li>
+      <li> 
+        <p id="location-label">@Cornell Hospital</p>
+      </li>
+    </ul>
+  </div>
+
+  <div id="yakApp">
+    <div class="container">
+      <div class="yak row submit">
+
+        <h2>New Post</h2>
+        <h3 style="line-height: 0px;">from <%= userID %></h3>
+        <form method="post" action="/new_post" style="height:130px;">
+          <textarea rows="5" type="text" name="text" style="width:100%;"></textarea>
+          <input class="button" style="float:right; cursor: pointer;" type="submit" value="Post">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

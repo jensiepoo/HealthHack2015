@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <title>Hospital Hangouts</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<head>
+</head>
+<body>
+
+  <div class="yakHeader">
+    <ul> 
+      <li> 
+        <img class="logo" src="/img/logoTransparent.png" alt="HospiTalk Logo" onclick="location.href='/welcome';" style="cursor: pointer;">
+      </li>
+    </ul>
+  </div>
+
+  <div id="yakApp">
+    <div class="container">
+      <div class="yak row submit" style="height: 100%;">
+         <h1> Welcome! </h1>
+        
+        <p>Your user name is: <%= userID %></p>
+        
+        <form method="get" action="/" style="height: 50px;">
+          <input class="button" type="submit" style="float:right; text-align: center; cursor: pointer;" value="Start talking!">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+* {
+  font-family: "Helvetica";
+}
+
+body {
+  background-color: #FAF8F2;
+  background-size: cover;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.yakHeader {
+  position: fixed;
+  top: 8px;
+  right: 0px;
+  left: 0px;
+  background-color: #8C489F;
+  height: 80px;
+  margin: -8px -8px 10px;
+  z-index:1;
+}
+
+.yakHeader ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+
+.yakHeader li {
+  display:inline;
+}
+
+#location-label {
+  position: absolute;
+  top: 54px;
+  left: 17px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media (min-width: 500px) {
+  .sortSelector {
+    position: fixed !important;
+    top: 0px !important;
+    width:230px;
+    margin-top: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    z-index:1 !important;
+    background-color: transparent;
+  }
+
+  .sortSelector p {
+    pointer-events: none;
+    font-size: 25px;
+    position: absolute;
+    top: 30px;
+    left: 22%;
+  }
+
+  .sortSelector #topSwitch {
+    left: 133px;
+  }
+}
+
+@media (max-width: 500px) {
+  .sortSelector {
+    position: relative !important;
+    top: 0px !important;
+    margin: 80px -11px -70px !important;
+    z-index:0 !important;
+  }
+
+  .sortSelector p {
+    pointer-events: none;
+    font-size: 25px;
+    position: absolute;
+    top: 30px;
+    margin-left: 50%;
+    left: -64px;
+  }
+
+  .sortSelector #topSwitch {
+    left: 16px;
+  }
+}
+
+.yakHeader input[type="range"] {
+  -webkit-appearance: none;
+  background-color: #B770CB;
+  width: 160px;
+  height: 50px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.yakHeader input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
+  width: 80px;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.yakHeader button  {
+  font-family: "Helvetica";
+  font-weight: bold;
+  font-size: 17px;
+  background: #C3C3E5;
+  border-radius: 20px;
+  color:#443266;
+  width: 100px;
+  height: 80%;
+
+  text-decoration: none;
+  text-shadow:0px 1px 0px #fff;
+  border: 0;
+  margin:0px auto;
+  margin-top:5px;
+  margin-right:10px;
+}
+
+
+.yakHeader button #add {
+  font-size: 50px;
+}  
+
+.yakHeader #selected {
+  border: 5px solid #443266;
+}
+
+.yakHeader .composeButton {
+  float:right;
+}
+
+.yakHeader .logo {
+  height: 90%;
+  margin-top: -7px;
+  float:left;
+}
+
+.yakHeader .addPost {
+  cursor: pointer;
+  float: right;
+  margin-right: 15px;
+  margin-top: 10px;
+  height: 60px;
+}
+
+.container {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#yakApp {
+  margin-top: 90px;
+}
+
+#yakApp .yak {
+  position: relative;
+  background: #fff;
+  min-height: 90px;
+  padding: 20px 0px 0px;
+}
+
+#yakApp h2 {
+  color: #8C489F;
+  font-weight: bold;
+}
+
+#yakApp h3 {
+  color: #8C489F;
+  font-weight: bold;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.submit {
+  font-family: "Helvetica";
+  color: #443266;
+  padding: 1px 20px 20px !important;
+  height: 210px;
+}
+
+#yakApp .yak .post-data {
+  width: 80%;
+}
+
+#yakApp .yak .yak-meta {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  min-height: 70px;
+}
+
+.col-xs-10 {
+  width: 83.33333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#yakApp .yak .yak-meta p {
+  height: 100%;
+  max-height: 96px;
+  width: 100%;
+  float: left;
+  font-size: 25px;
+  clear: both;
+  color: #637370;
+  font-family: "Helvetica";
+  word-break: break-word;
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+#yakApp .yak .yak-votes {
+  text-align: center;
+  margin: 0 auto;
+  padding-right: 0px;
+  padding-left: 0px;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  text-align: center;
+  transform: translateY(26%);
+  vertical-align: middle;
+}
+.col-xs-2 {
+  width: 16.66667%;
+  float: left;
+}
+
+#yakApp .yak .yak-votes .vote {
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 20px;
+  display: block;
+}
+
+#yakApp .yak .yak-votes .count {
+  font-size: 30px;
+  color: #8C489F;
+  display: block;
+  font-family: "Helvetica";
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#yakApp .yak .yak-votes img {
+  width: 50px;
+}
+
+.yak-footer {
+  right: 0;
+  clear: both;
+  width: 125%;
+  position: relative;
+  border: solid #e1e1e1;
+  border-width: 0 0 1px 0;
+}
+
+.yak-footer .time-since {
+  padding-left: 15px;
+  color: #637370;
+}
+
+.yak .button {
+  -webkit-appearance: none;
+  background-color: #C3C3E5;
+  font-family: "Helvetica";
+  font-weight: bold;
+  font-size: 17px;
+  border-radius: 20px;
+  color:#443266;
+  width: 70%;
+  height: 50px;
+
+  border: 0;
+  margin-right: 16%;
+}
+
+.yak-replies {
+  position: absolute;
+  bottom: 5px;
+  right: 10%;
+}
+
+.yak-replies img {
+  width: 15px;
+}
+
+.yak-replies p {
+  position: absolute;
+  left: 20px;
+  top: 0px;
+}

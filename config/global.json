@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "HealthHack2015": {
+            "applicationId": "Bjt9x45esHfrrXPdUr0XXnXgY7skFvQYiAbKOLnr", 
+            "masterKey": "ptZcbxTYDjkNRL5UtRVHfOXsCpLjWDiyVQTLpq32"
+        }, 
+        "_default": {
+            "link": "HealthHack2015"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.4.2"
+    }
+}

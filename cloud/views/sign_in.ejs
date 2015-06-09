@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <title>Hospital Hangouts</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<head>
+</head>
+<body>
+
+  <div class="yakHeader">
+    <ul> 
+      <li> 
+        <img class="logo" src="/img/logoTransparent.png" alt="HospiTalk Logo" onclick="location.href='/welcome';" style="cursor: pointer;">
+      </li>
+    </ul>
+  </div>
+
+  <div id="yakApp">
+    <div class="container">
+      <div class="yak row submit" style="height: 100%;">
+         <h1> Welcome! </h1>
+        
+        <p>HospiTalk is a communication platform that allows hospital attendees to share content related to their local community in
+        an anonymous and secure manner. Our goal is to enable users to connect to other users and be able to discuss and share the issues
+        important to them with their local community.</p>
+        
+        <p>
+        To get started, click the button to generate your randomized id for this session. Feel free to keep clicking until you get an id that you prefer.
+        </p>
+        
+        <form method="post" action="/generate_id" style="height: 50px;">
+          <input class="button" style="width:100%; word-wrap:break-word; cursor: pointer;" type="submit" value="Generate user name">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
